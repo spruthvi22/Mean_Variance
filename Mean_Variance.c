@@ -1,8 +1,8 @@
 /*
 * Author:Pruthvi Suryadevara
 * Email: pruthvi.suryadevara@tifr.res.in
-* Description: C code find Mean and Variance of [1,2^2,3^2..... n^2] and print to a text file
-* Compiled Output: Mean_5.out using makefile
+* Description: C code find Mean and Variance of [1,2^2,3^2..... n^2] and print to a binary file
+* Compiled Output: Mean_6.out using makefile
 */
 
 #include<stdio.h>
@@ -19,8 +19,8 @@ int main()
     }
   float *men_var=Men_Var(ary,n); //Calling the Function
   FILE *outfile;
-  outfile=fopen("Men_Var.txt","w");
-  fprintf(outfile,"Mean = %f \nVariance =  %f\n",men_var[0],men_var[1]);
+  outfile=fopen("Men_Var.bin","w");
+  fwrite(men_var,sizeof(float),2,outfile); // Saving it as a Binary file saves data when only saving numbers
   fclose(outfile);
   free(ary);
   free(men_var);
