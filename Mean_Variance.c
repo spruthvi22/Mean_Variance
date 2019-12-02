@@ -1,8 +1,8 @@
 /*
 * Author:Pruthvi Suryadevara
 * Email: pruthvi.suryadevara@tifr.res.in
-* Description: C code find Mean and Vriance of [1,2^2,3^2..... n^2] uisng Imported Function and printing type of initialization of calloc
-* Compiled Output: Mean_4.out using makefile
+* Description: C code find Mean and Variance of [1,2^2,3^2..... n^2] and print to a text file
+* Compiled Output: Mean_5.out using makefile
 */
 
 #include<stdio.h>
@@ -15,11 +15,13 @@ int main()
   float *ary=(float*)calloc(n,sizeof(float)); // Defining array of size n
   for(int i=0;i<n;i++)
     {
-      printf("%f ",ary[i]); //Printing the value before assignment, Should initialized to zero
       ary[i]=((i+1)*(i+1)); // Assigning the values to elements of array
     }
   float *men_var=Men_Var(ary,n); //Calling the Function
-  printf("Mean = %f \nVariance =  %f\n",men_var[0],men_var[1]);
+  FILE *outfile;
+  outfile=fopen("Men_Var.txt","w");
+  fprintf(outfile,"Mean = %f \nVariance =  %f\n",men_var[0],men_var[1]);
+  fclose(outfile);
   free(ary);
   free(men_var);
 }
