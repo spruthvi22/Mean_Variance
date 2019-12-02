@@ -1,5 +1,5 @@
 Mean_out_1: Mean_Variance.c Mean_Func.c Mean_Func.h
-	gcc Mean_Variance.c Mean_Func.c -o Mean_6.out
+	gcc -Wall Mean_Variance.c Mean_Func.c -lm -lgsl -lgslcblas -o Mean_7.out
 
 clean:
-	rm Mean_6.out
+	rm Mean_7.out
